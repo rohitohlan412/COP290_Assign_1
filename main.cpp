@@ -55,10 +55,10 @@ void img_setup(string s){
   pts1.push_back(Point2f(coordinates[3][0],coordinates[3][1]));
 
   vector<Point2f> pts2;
-  pts.push_back(Point2f(0,0));
-  pts.push_back(Point2f(0,1075));
-  pts.push_back(Point2f(1075,1075));
-  pts.push_back(Point2f(1075,0));
+  pts2.push_back(Point2f(0,0));
+  pts2.push_back(Point2f(0,1075));
+  pts2.push_back(Point2f(1075,1075));
+  pts2.push_back(Point2f(1075,0));
 
   hm = getPerspectiveTransform(pts1,pts2);
   warpPerspective(img1,img2,hm,Points(1075,1075));
