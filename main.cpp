@@ -1,6 +1,8 @@
 
 #include<iostream>
 #include<cv2/imgcodecs.hpp>
+#include<cv2/highgui.hpp>
+#include<cv2/imgproc.hpp>
 
 using namespace std;
 using namespace cv;
@@ -105,8 +107,9 @@ Point2f im_2_src[4] = {  {(coordinates[0].xs).0f,(coordinates[0].ys).0f},   {(co
 
 
 Point2f im_1_dest[4] = {  {0.0f,0.0f},   {1050.0f,0.0f},  {0.0f,0.1075.0f},   {1050.0f,1075.0f}     };         // set  the dimensions of the desired output wrapped image
-Point2f im_2_dest[4] = {  {},   {},  {},   {}     };          // set the dimensions of this as done for above
+Point2f im_2_dest[4] = {  {0.0f,0.0f},   {1050.0f,0.0f},  {0.0f,0.1075.0f},   {1050.0f,1075.0f}     };         // set  the dimensions of the desired output wrapped image
 
+	
 
 homo_1 = getPerspectiveTransform(im_1_src, im_1_dest);
 homo_2 = getPerspectiveTransform(im_2_src, im_2_dest);
@@ -116,8 +119,8 @@ warpPerspective(img2, img2_warp, homo_2, Points(w2,h2));
 
 mat img_crop_1, img_crop_2;
 
-rect c1();
-rect c2();
+rect c1(850,0,1050,1075);
+rect c2(850,0,1050,1075);
 
 
 
