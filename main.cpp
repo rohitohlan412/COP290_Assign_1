@@ -1,4 +1,7 @@
 #include <iostream>
+#include<cv2/imgcodecs.hpp>
+#include<cv2/highgui.hpp>
+#include<cv2/imgproc.hpp>
 
 using namespace std;
 
@@ -24,6 +27,8 @@ void MouseClick(int event,int x,int y,int flags, void*){
 }
 
 int main(){
+  img_setup("empty.jpg");
+  img_setup("traffic.jpg");
   return 0;
 }
 
@@ -35,17 +40,32 @@ img_setup(s){
   }
   namedWindow("My Window",1);
   imshow("My Window",img1);
-  coordinate coordinates[4];
+  int coordinates[4];
   for (int i=0;i<4;i++){
     waitkey(0);
     if (newClick){
-      coordinates[i].xs = c.xs;     // coordinates is struct--coordinate.... co[i][0].xs=c.xs   co[i][0].ys=c.ys
-      coordinates[i].ys = c.ys;
+      coordinates[i][0] = c.xs;
+      coordinates[i][1] = c.ys;
+      newClick = false;
     }
   }
   vector<Point2f> pts1;
-  pts1.push_back(Point2f(coordinates[0].xs,coordinates[0].ys));
-  pts1.push_back(Point2f(coordinates[1].xs,coordinates[1].ys));
-  pts1.push_back(Point2f(coordinates[2].xs,coordinates[2].ys));
-  pts1.push_back(Point2f(coordinates[3].xs,coordinates[3].ys));
+  pts1.push_back(Point2f(coordinates[0][0],coordinates[0][1]));
+  pts1.push_back(Point2f(coordinates[1][0],coordinates[1][1]));
+  pts1.push_back(Point2f(coordinates[2][0],coordinates[2][1]));
+  pts1.push_back(Point2f(coordinates[3][0],coordinates[3][1]));
+
+  vector<Point2f> pts2;
+  pts2.push_back(Point2f(0,0));
+  pts2.push_back(Point2f(0,1075));
+  pts2.push_back(Point2f(1075,0));
+  pts2.push_back(Point2f(1075,1075));
+	
+  hm = getPerspectiveTransform(pts1,pts2);
+  
+  warpPerspective(img1,img2,hm,Points(1075,1075));
+	
+  imshow("final image",img2);
+	
+  waitkey(0);
 }
