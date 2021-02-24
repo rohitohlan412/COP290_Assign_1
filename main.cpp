@@ -93,10 +93,11 @@ mat img2 = imread(src2);
 
 
 img_setup(src1);  
-Point2f im_1_src[4] = {  {coordinates[0].xs,coordinates[0].ys},   {coordinates[1].xs, coordintes[1].ys},  {coordinates[2].xs,coordinates[2].ys},   {coordinates[3].xs,coordinates[3].ys}     };        // check for syntax of how to use
+Point2f im_1_src[4] = {  {(coordinates[0].xs).0f,(coordinates[0].ys).0f},   {(coordinates[1].xs).0f, (coordintes[1].ys).0f},  {(coordinates[2].xs).0f,(coordinates[2].ys).0f},   {(coordinates[3].xs).0f,(coordinates[3].ys).0f}     };        // check for syntax of how to use
   img_setup(src2);
-Point2f im_2_src[4] = {  {coordinates[0].xs,coordinates[0].ys},   {coordinates[1].xs, coordintes[1].ys},  {coordinates[2].xs,coordinates[2].ys},   {coordinates[3].xs,coordinates[3].ys}     };        // check for syntax of how to use
-  
+Point2f im_2_src[4] = {  {(coordinates[0].xs).0f,(coordinates[0].ys).0f},   {(coordinates[1].xs).0f, (coordintes[1].ys).0f},  {(coordinates[2].xs).0f,(coordinates[2].ys).0f},   {(coordinates[3].xs).0f,(coordinates[3].ys).0f}     };        // check for syntax of how to use
+
+ 
 	// changes in the above four lines... instead of using vector<2f> directly taking values from global coordinate coordinates  struct...........
 	
 	
