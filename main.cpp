@@ -39,7 +39,7 @@ img_setup(s){
   for (int i=0;i<4;i++){
     waitkey(0);
     if (newClick){
-      coordinates[i][0] = c.xs;
+      coordinates[i][0] = c.xs;     // coordinates is struct--coordinate.... co[i][0].xs=c.xs   co[i][0].ys=c.ys
       coordinates[i][1] = c.ys;
     }
   }
