@@ -103,8 +103,8 @@ Point2f im_2_src[4] = {  {coordinates[0].xs,coordinates[0].ys},   {coordinates[1
 
 
 
-Point2f im_1_dest[4] = {  {},   {},  {},   {}     };         // set  the dimensions of the desired output wrapped image
-Point2f im_2_dest[4] = {  {},   {},  {},   {}     };          // same as above
+Point2f im_1_dest[4] = {  {0.0f,0.0f},   {1050.0f,0.0f},  {0.0f,0.1075.0f},   {1050.0f,1075.0f}     };         // set  the dimensions of the desired output wrapped image
+Point2f im_2_dest[4] = {  {},   {},  {},   {}     };          // set the dimensions of this as done for above
 
 
 homo_1 = getPerspectiveTransform(im_1_src, im_1_dest);
