@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void img_setup(str s);
+void img_setup(string s);
 
 struct coordinate{
 	int xs;
