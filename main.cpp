@@ -30,8 +30,7 @@ void MouseClick(int event,int x,int y,int flags, void*){
    }
 }
 
-vector<Point2f> pts1;             // new addition............ to make the varialbe global
-
+coordinate coordinates[4];              //  new line addition to make it global
 
 void img_setup(s){
   Mat img1 = imread(s);
@@ -49,14 +48,22 @@ void img_setup(s){
       coordinates[i].ys = c.ys;
     }
   }
-  vector<Point2f> pts1;                        //needs to be deleted........
+	
+}
+	
+	
+	
+ /*   vector<Point2f> pts1;                        //needs to be deleted........
   pts1.push_back(Point2f(coordinates[0].xs,coordinates[0].ys));
   pts1.push_back(Point2f(coordinates[1].xs,coordinates[1].ys));
   pts1.push_back(Point2f(coordinates[2].xs,coordinates[2].ys));
   pts1.push_back(Point2f(coordinates[3].xs,coordinates[3].ys));
-}
 
-
+*/
+	
+	
+	
+	// deletion of above vector ...............
 
 
 
@@ -86,9 +93,13 @@ mat img2 = imread(src2);
 
 
 img_setup(src1);  
-Point2f im_1_src[4] = {  {pts1[0]},   {pts1[1]},  {pts1[2]},   {pts1[3]}     };        // check for syntax of how to use
+Point2f im_1_src[4] = {  {coordinates[0].xs,coordinates[0].ys},   {coordinates[1].xs, coordintes[1].ys},  {coordinates[2].xs,coordinates[2].ys},   {coordinates[3].xs,coordinates[3].ys}     };        // check for syntax of how to use
   img_setup(src2);
-Point2f im_2_src[4] = {  {pts1[0]},   {pts1[1]},  {pts1[2]},   {pts1[3]}     };        // check for syntax of how to use
+Point2f im_2_src[4] = {  {coordinates[0].xs,coordinates[0].ys},   {coordinates[1].xs, coordintes[1].ys},  {coordinates[2].xs,coordinates[2].ys},   {coordinates[3].xs,coordinates[3].ys}     };        // check for syntax of how to use
+  
+	// changes in the above four lines... instead of using vector<2f> directly taking values from global coordinate coordinates  struct...........
+	
+	
 
 
 
