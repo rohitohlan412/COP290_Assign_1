@@ -28,6 +28,7 @@ void MouseClick(int event,int x,int y,int flags, void*){
 int main(){
   img_setup("empty.jpg");
   img_setup("traffic.jpg");
+  return 0;
 }
 
 void img_setup(string s){
